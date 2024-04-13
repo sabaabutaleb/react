@@ -6,7 +6,16 @@ function App() {
   return (
     <div>
       <h1 className="heading">My Contacts</h1>
-      <Card
+      {contacts.map((contact) => (
+        <Card
+          key={contact.id}
+          name={contact.name}
+          imgURL={contact.imgURL}
+          phone={contact.phone}
+          email={contact.email}
+        />
+      ))}
+      {/* <Card
         name={contacts[0].name}
         imgURL={contacts[0].imgURL}
         phone={contacts[0].phone}
@@ -23,7 +32,7 @@ function App() {
         imgURL={contacts[2].imgURL}
         phone={contacts[2].phone}
         email={contacts[2].email}
-      />
+      /> */}
     </div>
   );
 }
