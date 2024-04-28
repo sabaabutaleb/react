@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 // import PackingList from "./packingList";
 
-export default function Item({ itemObj }) {
+export default function Item({ item, onDeleteItem }) {
   return (
     <li className="">
       <input type="checkbox"></input>
-      <span style={itemObj.packed ? { textDecoration: "line-through" } : {}}>
-        {itemObj.quantity}
-        {itemObj.description}
+      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
+        {item.quantity}
+        {item.description}
       </span>
 
-      <span class="close">&times;</span>
+      {/* <span onClick={() => onDeleteItem(itemObj.id)} class="close">
+        &times;
+      </span> */}
+      <button onClick={() => onDeleteItem(item.id)}>❎</button>
     </li>
   );
 }

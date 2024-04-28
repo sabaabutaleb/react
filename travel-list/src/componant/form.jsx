@@ -3,7 +3,7 @@ const numbers = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
 ];
 
-export default function Form() {
+export default function Form({ onAddItem }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -11,8 +11,10 @@ export default function Form() {
     e.preventDefault(); //no reload to support SPA
     console.log(e);
     if (!description) return;
-    const newItem = { description, quantity, packed: false };
+    const newItem = { description, quantity, packed: false, id: Date.now() };
     console.log(newItem);
+    onAddItem(newItem);
+
     setDescription("");
     setQuantity(1);
   }

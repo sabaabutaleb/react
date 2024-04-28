@@ -6,13 +6,13 @@ const initialItems = [
   { id: 4, description: "Tooth brush", quantity: 2, packed: false },
   { id: 2, description: "Socks", quantity: 12, packed: false },
 ];
-function PackingList() {
+function PackingList({ items, onDeleteItem }) {
   return (
     <div className="list">
       <ul>
         {/* {initialItems.map((item)=><Item description={item.description} quantity={item.quantity} packed={item.packed} key={item.id}/>)} */}
-        {initialItems.map((item) => (
-          <Item itemObj={item} key={item.id} />
+        {items.map((item) => (
+          <Item item={item} onDeleteItem={onDeleteItem} key={item.id} />
         ))}
       </ul>
 
