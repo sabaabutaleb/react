@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 // import PackingList from "./packingList";
 
-export default function Item({ item, onDeleteItem }) {
+export default function Item({ item, onDeleteItem, onHandleToggle }) {
   return (
     <li className="">
-      <input type="checkbox"></input>
+      <input
+        type="checkbox"
+        value={item.packed}
+        onChange={() => onHandleToggle(item.id)}
+      ></input>
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
         {item.quantity}
         {item.description}
