@@ -63,7 +63,11 @@ function App() {
         </Button>
       </div>
       {selectedFriend && (
-        <ShareAMeal selectedFriend={selectedFriend} onSplit={handleSplit} />
+        <ShareAMeal
+          selectedFriend={selectedFriend}
+          onSplit={handleSplit}
+          key={selectedFriend.id}
+        />
       )}
     </div>
   );
