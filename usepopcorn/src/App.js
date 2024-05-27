@@ -136,11 +136,13 @@ function Box({ children }) {
 // }
 function MoviesList({ movies }) {
   return (
-    <ul className="list">
-      {movies?.map((movie) => (
-        <Movie movie={movie} key={movie.imdbID} />
-      ))}
-    </ul>
+    <div className="list-movies ">
+      <ul className="list">
+        {movies?.map((movie) => (
+          <Movie movie={movie} key={movie.imdbID} />
+        ))}
+      </ul>
+    </div>
   );
 }
 function Movie({ movie }) {
@@ -207,11 +209,13 @@ function Summury({ watched }) {
 }
 function WatchedList({ watched }) {
   return (
-    <ul className="list">
-      {watched.map((movie) => (
-        <WatchedMovie movie={movie} />
-      ))}
-    </ul>
+    <div className="list-watched">
+      <ul className="list">
+        {watched.map((movie) => (
+          <WatchedMovie movie={movie} />
+        ))}
+      </ul>
+    </div>
   );
 }
 function WatchedMovie({ movie }) {
