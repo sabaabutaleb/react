@@ -78,6 +78,25 @@ function Content({ content, active }) {
     e.preventDefault();
     setHideDetails((hideDetails) => !hideDetails);
   }
+  function handleUndo() {
+    console.log("undo");
+    setHideDetails(false);
+    setLikes(0);
+  }
+  function handleTripleIncrease(e) {
+    e.preventDefault();
+    //if we want to update state based on current state we have to use callback function so we can get access
+    //to the previous state in another way just to learn the difference
+    // setLikes(likes + 3);
+    setLikes((likes) => likes + 3);
+    // setLikes((likes) => likes + 1);
+    // setLikes((likes) => likes + 1);
+    // setLikes((likes) => likes + 1);
+    //so the best practice is to use callback functions
+  }
+  function handleUndoAfter2Sec() {
+    setTimeout(handleUndo, 2000);
+  }
 
   return (
     <div>
@@ -90,13 +109,13 @@ function Content({ content, active }) {
           </button>
           <div className="hearts-counter">
             <p>{likes}👍</p>
-            <button onClick={() => setLikes(likes + 1)}>+</button>
-            <button>+++</button>{" "}
+            <button onClick={() => setLikes((likes) => likes + 1)}>+</button>
+            <button onClick={handleTripleIncrease}>+++</button>{" "}
           </div>
         </div>
         <div className="tab-undo">
-          <button>Undo</button>
-          <button>Undo in 2 sec</button>
+          <button onClick={handleUndo}>Undo</button>
+          <button onClick={handleUndoAfter2Sec}>Undo in 2 sec</button>
         </div>
       </div>
     </div>

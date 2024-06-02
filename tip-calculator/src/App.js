@@ -3,13 +3,13 @@ import "./App.css";
 
 function App() {
   const [bill, setBill] = useState("");
-  const [percentage1, setPercentage1] = useState("");
-  const [percentage2, setPercentage2] = useState("");
+  const [percentage1, setPercentage1] = useState(0);
+  const [percentage2, setPercentage2] = useState(0);
 
   function handleReset() {
     setBill("");
-    setPercentage1("");
-    setPercentage2("");
+    setPercentage1(0);
+    setPercentage2(0);
   }
   return (
     <div className="App">
